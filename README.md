@@ -3,7 +3,7 @@
 基于 Model Context Protocol (MCP) 开发的桌面图片管理服务器，提供图片文件统计、查看和压缩功能。
 
 ## 操作示例：
-[![示例图片](https://claude.ai/share/0ffbad1e-502e-4188-b008-0bb966acf06d)](./assets/example.png)
+[![示例图片](./assets/example.png)](https://claude.ai/share/0ffbad1e-502e-4188-b008-0bb966acf06d)
 [https://claude.ai/share/0ffbad1e-502e-4188-b008-0bb966acf06d](https://claude.ai/share/0ffbad1e-502e-4188-b008-0bb966acf06d)
 
 ## 功能特性
