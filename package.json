@@ -1,0 +1,38 @@
+{
+  "name": "desktop-image-manager",
+  "version": "1.0.0",
+  "description": "MCP 服务器，用于管理桌面图片",
+  "main": "dist/server.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "dev": "tsx server.ts",
+    "inspector": "pnpm build & npx @modelcontextprotocol/inspector node dist/server.js"
+  },
+  "keywords": [
+    "mcp",
+    "image",
+    "desktop"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "latest",
+    "fs-extra": "^11.1.1",
+    "sharp": "^0.32.6",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^20.8.10",
+    "ts-node": "^10.9.1",
+    "tsx": "^4.19.3",
+    "typescript": "^5.2.2"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "sharp"
+    ]
+  }
+}
