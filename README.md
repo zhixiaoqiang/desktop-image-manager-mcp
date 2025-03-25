@@ -72,6 +72,13 @@ pnpm build
 pnpm start
 ```
 
+## 调试
+
+```bash
+# 调试 MCP 服务
+pnpm inspector
+```
+
 ## MCP 工具使用说明
 ### 1. 统计桌面图片数量
 ```bash
@@ -106,6 +113,30 @@ await client.callTool({
     outputName: "example-compressed.jpg"
   }
 });
+```
+
+## 开发
+
+```bash
+# 启动开发服务器
+pnpm dev
+```
+
+## 安装
+使用 Claude Desktop 添加如下配置 config:
+
+MacOS: ~/Library/Application Support/Claude/claude_desktop_config.json Windows: %APPDATA%/Claude/claude_desktop_config.json
+
+```json
+{
+  "desktop-image-manager": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@jzone-mcp/desktop-image-manager-mcp"
+      ]
+    }
+}
 ```
 
 ## 注意事项
