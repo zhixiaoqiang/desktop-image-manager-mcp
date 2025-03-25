@@ -1,6 +1,6 @@
 {
   "name": "@jzone-mcp/desktop-image-manager-mcp",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "MCP 服务器，用于管理桌面图片，提供图片文件统计、查看和压缩功能",
   "main": "dist/server.js",
   "type": "module",
