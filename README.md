@@ -2,6 +2,10 @@
 
 基于 Model Context Protocol (MCP) 开发的桌面图片管理服务器，提供图片文件统计、查看和压缩功能。
 
+<a href="https://glama.ai/mcp/servers/@zhixiaoqiang/desktop-image-manager-mcp">
+  <img width="380" height="200" src="https://glama.ai/mcp/servers/@zhixiaoqiang/desktop-image-manager-mcp/badge" alt="Desktop Image Manager Server MCP server" />
+</a>
+
 ## 操作示例：
 [![示例图片](https://github.com/zhixiaoqiang/desktop-image-manager-mcp/blob/main/assets/example.png?raw=true)](https://claude.ai/share/0ffbad1e-502e-4188-b008-0bb966acf06d)
 [https://claude.ai/share/0ffbad1e-502e-4188-b008-0bb966acf06d](https://claude.ai/share/0ffbad1e-502e-4188-b008-0bb966acf06d)
@@ -149,7 +153,6 @@ MacOS: ~/Library/Application Support/Claude/claude_desktop_config.json Windows: 
 - Sharp (图片处理)
 - fs-extra (文件操作)
 - zod (参数验证)
-
 
 ## 许可证
 MIT License
