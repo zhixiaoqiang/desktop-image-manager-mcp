@@ -7,7 +7,6 @@ import fs from 'fs-extra';
 import * as path from 'node:path';
 import * as os from 'node:os';
 import sharp from 'sharp';
-import packageJson from './package.json' assert { type: "json" };
 
 
 // 获取桌面路径
@@ -35,15 +34,15 @@ const getDesktopImageFiles = async (): Promise<string[]> => {
     });
     return imagePaths;
   } catch (error) {
-    // process.stderr.write(`Error reading desktop directory: ${error}`, );
+    console.error(`Error reading desktop directory: ${error}`, );
     return [];
   }
 };
 
 // 创建 MCP 服务器
 const server = new McpServer({
-  name: "desktop-image-manager",  // 修改为与 package.json 中一致的名称
-  version: packageJson.version
+  name: "desktop-image-manager",
+  version: process.env.VERSION || '1.0.0'
 });
 
 // 工具1: 统计桌面上的图片文件数量
@@ -186,6 +185,35 @@ server.tool(
     }
   }
 );
+
+server.prompt(
+  'compress-image',
+  '压缩图片',
+  {
+    fileName: z.string().describe("要压缩的图片文件名"),
+    quality: z.string().describe("压缩质量 (1-100)").optional(),
+    outputName: z.string().optional().describe("输出文件名 (可选)")
+  },
+  async ({ fileName, quality, outputName }) => {
+    const convertQuality = Math.max(Math.min(100, parseInt(quality|| '0', 10) || 85), 1);
+
+    const ext = path.extname(fileName);
+    const baseName = path.basename(fileName, ext);
+    const finalOutputName = outputName || `${baseName}-compressed${ext}`;
+    const outputNameFilled = isImageFile(finalOutputName) ? finalOutputName : `${finalOutputName}${ext}`;
+    
+    return {
+      messages: [
+        {
+          role: 'user',
+          content: {
+            type: 'text',
+            text: `请压缩图片 "${fileName}"，压缩质量为 ${convertQuality}%，输出文件名为 "${outputNameFilled}"。`
+          }
+        }
+      ]
+    }
+  })
 
 // 启动服务器
 const transport = new StdioServerTransport();
