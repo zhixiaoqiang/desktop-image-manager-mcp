@@ -6,9 +6,9 @@
   "type": "module",
   "bin": "dist/server.js",
   "scripts": {
-    "build": "tsc",
+    "build": "tsup",
     "start": "node dist/server.js",
-    "dev": "tsx server.ts",
+    "dev": "tsup --watch",
     "inspector": "pnpm build & npx @modelcontextprotocol/inspector node dist/server.js"
   },
   "keywords": [
@@ -31,7 +31,7 @@
   "devDependencies": {
     "@types/fs-extra": "^11.0.4",
     "@types/node": "^22.13.14",
-    "tsx": "^4.19.3",
+    "tsup": "^8.4.0",
     "typescript": "^5.8.2"
   },
   "pnpm": {
