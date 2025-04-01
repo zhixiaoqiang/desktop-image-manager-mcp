@@ -9,7 +9,8 @@
     "build": "tsup",
     "start": "node dist/server.js",
     "dev": "tsup --watch",
-    "inspector": "pnpm build & npx @modelcontextprotocol/inspector node dist/server.js"
+    "inspector": "pnpm build & npx @modelcontextprotocol/inspector node dist/server.js",
+    "prepublishOnly": "pnpm build"
   },
   "keywords": [
     "mcp",
