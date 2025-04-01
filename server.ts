@@ -7,6 +7,7 @@ import fs from 'fs-extra';
 import * as path from 'node:path';
 import * as os from 'node:os';
 import sharp from 'sharp';
+import packageJson from './package.json' assert { type: "json" };
 
 
 // 获取桌面路径
@@ -42,12 +43,13 @@ const getDesktopImageFiles = async (): Promise<string[]> => {
 // 创建 MCP 服务器
 const server = new McpServer({
   name: "desktop-image-manager",  // 修改为与 package.json 中一致的名称
-  version: "1.0.0"
+  version: packageJson.version
 });
 
 // 工具1: 统计桌面上的图片文件数量
 server.tool(
   "count-desktop-images",
+  "统计桌面上的图片文件数量",
   {},
   async () => {
     try {
@@ -73,6 +75,7 @@ server.tool(
 // 工具2: 获取桌面上的图片文件名称列表
 server.tool(
   "list-desktop-images",
+  "获取桌面上的图片文件名称列表",
   {},
   async () => {
     try {
@@ -105,6 +108,7 @@ server.tool(
 // 工具3: 压缩图片
 server.tool(
   "compress-image",
+  '压缩图片',
   {
     fileName: z.string().describe("要压缩的图片文件名"),
     quality: z.number().min(1).max(100).default(80).describe("压缩质量 (1-100)"),
